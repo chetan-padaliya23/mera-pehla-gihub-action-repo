@@ -1,0 +1,40 @@
+name: Mera Pehla GitHub Action
+
+# Kab chalega ye workflow?
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Kya kaam karega?
+jobs:
+  mera-pehla-job:
+    
+    # Kahan chalega? GitHub ke server pe
+    runs-on: ubuntu-latest
+    
+    # Step by step kaam
+    steps:
+    
+      # Step 1: Code download karo
+      - name: Code checkout karo
+        uses: actions/checkout@v3
+      
+      # Step 2: Hello World print karo
+      - name: Hello print karo
+        run: echo "Hello Bhai! GitHub Actions chal raha hai!"
+      
+      # Step 3: Kuch basic commands
+      - name: System info dekho
+        run: |
+          echo "Date hai: $(date)"
+          echo "Folder structure:"
+          ls -la
+          echo "Mera naam hai: Chetan"
+      
+      # Step 4: File check karo
+      - name: Files check karo
+        run: |
+          echo "README content:"
+          cat README.md
